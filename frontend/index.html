@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Checklist 100% · Steam</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topo">
+    <h1>Checklist 100%</h1>
+    <p>Veja o que falta para completar as conquistas dos seus jogos da Steam.</p>
+  </header>
+
+  <main>
+    <p id="aviso" class="aviso" role="alert" hidden></p>
+
+    <!-- 1. Perfil -->
+    <section id="tela-perfil">
+      <form id="form-perfil" class="caixa">
+        <label for="entrada-perfil">Seu perfil da Steam</label>
+        <div class="linha">
+          <input id="entrada-perfil" type="text" placeholder="Nome do perfil, link ou SteamID64" required>
+          <button type="submit">Ver meus jogos</button>
+        </div>
+        <small>O perfil precisa estar com “Detalhes do jogo” público.</small>
+      </form>
+
+      <form id="form-appid" class="caixa">
+        <label for="entrada-appid">Ou abra um jogo direto pelo AppID</label>
+        <div class="linha">
+          <input id="entrada-appid" type="number" min="1" placeholder="Ex.: 292030">
+          <button type="submit" class="secundario">Abrir jogo</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- 2. Biblioteca -->
+    <section id="tela-biblioteca" hidden>
+      <div class="barra-topo">
+        <button id="btn-trocar-perfil" class="link">Trocar perfil</button>
+      </div>
+      <input id="busca-jogo" type="search" placeholder="Buscar jogo na biblioteca" aria-label="Buscar jogo">
+      <ul id="lista-jogos" class="lista-jogos"></ul>
+    </section>
+
+    <!-- 3. Checklist -->
+    <section id="tela-jogo" hidden>
+      <div class="barra-topo">
+        <button id="btn-voltar" class="link">← Voltar</button>
+      </div>
+      <h2 id="titulo-jogo"></h2>
+
+      <div class="progresso">
+        <div class="progresso-texto"><span id="prog-num"></span><span id="prog-pct"></span></div>
+        <div class="trilho"><div id="prog-barra" class="barra"></div></div>
+      </div>
+
+      <div class="controles">
+        <div class="filtros" role="group" aria-label="Filtrar">
+          <button data-filtro="todas" aria-pressed="true">Todas</button>
+          <button data-filtro="pendentes" aria-pressed="false">Pendentes</button>
+          <button data-filtro="concluidas" aria-pressed="false">Concluídas</button>
+        </div>
+        <label class="ordem">Ordenar
+          <select id="ordem">
+            <option value="raridade-desc">Mais fáceis primeiro</option>
+            <option value="raridade-asc">Mais raras primeiro</option>
+            <option value="nome">Nome (A–Z)</option>
+          </select>
+        </label>
+      </div>
+
+      <ul id="lista-conquistas" class="conquistas"></ul>
+    </section>
+  </main>
+
+  <footer class="rodape">Dados fornecidos pela Steam Web API. Não afiliado à Valve.</footer>
+  <script src="app.js"></script>
+</body>
+</html>

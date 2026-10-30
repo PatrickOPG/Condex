@@ -1,0 +1,12 @@
+# Segredos (nunca publicar)
+.env
+
+# Ambiente virtual do Python
+venv/
+
+# Banco de dados local (cache e guias)
+dados.db
+
+# Arquivos temporários do Python
+__pycache__/
+*.pyc
